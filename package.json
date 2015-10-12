@@ -1,0 +1,23 @@
+{
+  "name": "baconpriest",
+  "version": "0.0.1",
+  "description": "A browser based MAME game launcher.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uncletammy/baconpriest.git"
+  },
+  "keywords": [
+    "arcade",
+    "mame"
+  ],
+  "author": "Nicholas Crumrine",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uncletammy/baconpriest/issues"
+  },
+  "homepage": "https://github.com/uncletammy/baconpriest#readme"
+}
