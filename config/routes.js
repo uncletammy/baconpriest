@@ -34,7 +34,9 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
-  }
+  },
+  'GET /games': 'GameController.find',
+  'POST /games': 'GameController.add'
 
   /***************************************************************************
   *                                                                          *

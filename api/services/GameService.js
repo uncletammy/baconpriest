@@ -1,85 +1,147 @@
+var spawn = require('child_process').spawn;
 var fs = require('fs');
 var async = require('async');
 
 module.exports = function(){
 
-	console.log('typeof:',typeof Game);
+	sails.on('hook:orm:loaded', function() {
 
-	var syncGames = function(){
-		console.log('Syncing games:');
+		// var Game = sails.models.game;
 
-		async.auto({
-			'deleteRecords': [function(next,results){
-				Game
-				.destroy()
-				.exec(function(err,deadGames){
-					console.log(err,deadGames);
-					return next(err,deadGames);
-				});
-			}],
-			'readGames': ['deleteRecords',function(next,results){
-				fs.readdir(sails.config.mame.romdir, function(err,files){
-					if (err){
-						console.log('Error reading dir:',err);						
-					}
+		console.log('typeof:',typeof Game,typeof sails);
 
-					console.log('Got games:',files);
-					return next(err,files);
-				});
-			}],
-			'makeRecords': ['readGames',function(next,results){
+		var syncGames = function(){
+			console.log('Syncing games');
 
-				var creates = [];
+			async.auto({
+				'deleteRecords': [function(next,results){
+					Game
+					.destroy()
+					.exec(function(err,deadGames){
+						console.log('deleted',err,deadGames);
+						return next(err,deadGames);
+					});
+				}],
+				'readGames': ['deleteRecords',function(next,results){
+					fs.readdir(sails.config.mame.romdir, function(err,files){
+						if (err){
+							console.log('Error reading dir:',err);						
+						}
 
-				_.each(results.readGames,function(oneGame){
+						console.log('Got games:',files);
+						return next(err,files);
+					});
+				}],
+				'makeRecords': ['readGames',function(next,results){
 
-					var splitName=oneGame.split('.');
+					var creates = [];
 
-					var createThis = {
-						// Chop off the file extension
-						name: splitName.slice(0,splitName.length-1).join('.'),
-						filename: oneGame
+					_.each(results.readGames,function(oneGame){
+
+						var splitName=oneGame.split('.');
+
+						var createThis = {
+							// Chop off the file extension
+							name: splitName.slice(0,splitName.length-1).join('.'),
+							filename: oneGame
+						};
+
+						creates.push(createThis);
+
+					});
+
+					var createResults = {
+						success:[],
+						fail:[]
 					};
 
-					creates.push(creates);
+					async.eachSeries(creates,function(oneGame,go){
+						Game
+						.create(oneGame)
+						.exec(function(err,created){
+							if (err){
+								createResults.fail.push(oneGame);
+							}
+							else {
+								createResults.success.push(created);
+							}
+							return go();
+						});
+					},function allDone(err){
+						if (err){
+							return next(err);
+						}
+						return next(null,createResults);
+					});
 
-				});
+				}]
+			},function(err,results){
+				if (err){
+					console.log('Error!',err);
+					return;
+				}
 
-				Game
-				.create(creates)
-				.exec(function(err,created){
-					if (err){
-						return next(err);
-					}
-					console.log('Created:',created.length,'games');
+				else {
+					return;
+				}
 
-					return next();
-				});
+			});
 
-			}]
-		},function(err,results){
-			if (err){
-				console.log('Error!',err);
-				return;
-			}
+		};
+		var syncGamesInterval = setInterval(syncGames,10000);
 
-			else {
-				return;
-			}
 
-		});
+		var launchChrome = function(){
 
-	};
-	var syncGamesInterval = setInterval(syncGames,15000);
-	
+			console.log('Launching Chrome!');
 
-	var launchGame = function(){
-	// chromium --app=http://www.google.com --start-fullscreen
-	};
+			var ls = spawn('chromium', ['--app=http://localhost:1337','--start-fullscreen']);
+			ls.stderr.setEncoding('utf8');
 
-	return {
-		sync: syncGames,
-		syncGamesInterval: syncGamesInterval
-	};
+			ls.stderr.on('data', function(data) {
+				console.log('stderr:',data);
+			});
+
+			ls.on('exit', function(code) {
+				console.log('child process exited with code ' + code);
+			});
+			// ls.kill()
+
+
+			// chromium --app=http://www.google.com --start-fullscreen
+		};
+
+		var launchChrome = setTimeout(launchChrome,15000);
+
+
+		var launchGame = function(gameObject){
+
+			console.log('Launching mame with game:',gameObject.name);
+
+			var ls = spawn('mame', [''+gameObject.name]);
+			ls.stderr.setEncoding('utf8');
+
+			ls.stderr.on('data', function(data) {
+				console.log('stderr:',data);
+			});
+
+			ls.on('exit', function(code) {
+				console.log('child process exited with code ' + code);
+			});
+			// ls.kill()
+
+
+			// chromium --app=http://www.google.com --start-fullscreen
+		};
+
+
+
+		return {
+			sync: syncGames,
+			syncGamesInterval: syncGamesInterval,
+			launch: launchGame
+		};
+
+	});
 
 }();

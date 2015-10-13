@@ -26,8 +26,18 @@ var jsFilesToInject = [
   // Load sails.io before everything else
   'js/dependencies/sails.io.js',
 
+  // Load frontend framework first
+  '/js/dependencies/angular/angular.js',
+  '/js/dependencies/angular-ui-router/angular-ui-router.js',
+  '/js/dependencies/lodash/lodash.js',
+
+
   // Dependencies like jQuery, or Angular are brought in here
   'js/dependencies/**/*.js',
+
+  // Some application logic needs to load first
+  'js/baconpriest.module.js',
+
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
