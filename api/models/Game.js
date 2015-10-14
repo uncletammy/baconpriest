@@ -14,6 +14,9 @@ module.exports = {
   	filename: {
   		type: 'string'
   	},
+  	path: {
+  		type: 'string'
+  	},
   	description: {
   		type: 'string'
   	}

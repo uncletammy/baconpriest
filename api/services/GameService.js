@@ -66,13 +66,14 @@ module.exports = function(){
 						var splitName=oneGame.split('.');
 						splitName=splitName.slice(0,splitName.length-1).join('.');
 						splitName=splitName.split('/');
-
-						var romName = splitName[splitName.length-1];
+						var romName = splitName.pop();
+						var savePath =  splitName.join('/');
 
 						var createThis = {
 							// Chop off the file extension
 							name: romName,
 							filename: oneGame,
+							path:savePath,
 							description: romDescriptions[romName] !== undefined ? romDescriptions[romName] : romName
 						};
 
@@ -153,9 +154,9 @@ module.exports = function(){
 
 		var launchGame = function(gameObject,callback){
 
-			console.log('Launching mame with game:',gameObject.name,'using command:','mame '+gameObject.filename);
+			console.log('Launching mame with game:',gameObject.name,'using command:','mame -rompath '+gameObject.path+' '++gameObject.filename);
 
-			var ls = spawn('mame', [''+gameObject.filename]);
+			var ls = spawn('mame', ['-rompath '+gameObject.path+' '+gameObject.filename]);
 			ls.stderr.setEncoding('utf8');
 
 			ls.stderr.on('data', function(data) {

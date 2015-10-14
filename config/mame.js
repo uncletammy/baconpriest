@@ -1,4 +1,4 @@
 module.exports.mame = {
 	// romdir: '/home/mame/baconpriest/roms'
-	romdirs: ['./roms','../roms']
+	romdirs: ['/home/mame/baconpriest/roms','/home/mame/roms']
 };
