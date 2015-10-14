@@ -3,12 +3,8 @@ angular.module('baconpriest')
         '$scope', '$rootScope', '$state', '$q',
 function($scope, $rootScope, $state, $q) {
 
-  window.rootScope = $rootScope;
-
-  $scope.allGames = $rootScope.allGames;
-  $rootScope.allGames = [];
   $scope.allGames = [];
-
+  $rootScope.allGames = [];
   // Create promise for app ready state
   var appReady = $q.defer();
   var viewReady = $q.defer();
@@ -24,10 +20,9 @@ function($scope, $rootScope, $state, $q) {
   .finally(function eitherWay(){
 
       io.socket.get('/games',function(serverResponse){
-        console.log('Got games:',serverResponse);
         _.each(serverResponse,function(oneGame){
           console.log('pushing:',oneGame.name);
-          $scope.allGames.push(oneGame);
+          $rootScope.allGames.push(new Game(oneGame));
         });
         viewReady.resolve();
       });

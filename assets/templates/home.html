@@ -1,6 +1,13 @@
+<style>
+	.gameContainer{
+		border:2px solid black;
+		border-radius:5px;
+	}
+</style>
+
 <div>
-	<h1>I am the baconpriest</h1>asdasd:{{allGames}}{{thing}}
-	<div ng-repeat="game in allGames">
+	<h1>I am the baconpriest</h1>
+	<div ng-repeat="game in allGames" class="gameContainer" ng-click="launchGame(game)">
 		Game:{{game.name}}
 	</div>
 </div>

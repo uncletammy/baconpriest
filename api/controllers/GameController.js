@@ -19,6 +19,15 @@ module.exports = {
 	},
 	add: function(req,res){
 
+	},
+	play: function(req,res){
+		var gameToLaunch = req.param('game');
+		console.log('trying to launch:',gameToLaunch);
+		
+		sails.services.gameservice.launch(gameToLaunch,function(err,spawn){
+			console.log('Got game spawn:',spawn);
+			return res.ok();
+		});
 	}
 };
 

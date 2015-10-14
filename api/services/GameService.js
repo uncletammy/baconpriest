@@ -1,14 +1,14 @@
 var spawn = require('child_process').spawn;
 var fs = require('fs');
 var async = require('async');
+var _= require('lodash');
 
 module.exports = function(){
 
-	sails.on('hook:orm:loaded', function() {
+	var gameService = {};
 
-		// var Game = sails.models.game;
 
-		console.log('typeof:',typeof Game,typeof sails);
+	var extendGameService = function() {
 
 		var syncGames = function(){
 			console.log('Syncing games');
@@ -111,10 +111,10 @@ module.exports = function(){
 			// chromium --app=http://www.google.com --start-fullscreen
 		};
 
-		var launchChrome = setTimeout(launchChrome,15000);
+		var launchChromeTimeout = setTimeout(launchChrome,15000);
 
 
-		var launchGame = function(gameObject){
+		var launchGame = function(gameObject,callback){
 
 			console.log('Launching mame with game:',gameObject.name);
 
@@ -130,18 +130,21 @@ module.exports = function(){
 			});
 			// ls.kill()
 
+			return callback(null,ls);
 
 			// chromium --app=http://www.google.com --start-fullscreen
 		};
 
-
-
-		return {
+		_.extend(gameService,{
 			sync: syncGames,
 			syncGamesInterval: syncGamesInterval,
 			launch: launchGame
-		};
+		});
 
-	});
+	}
+
+	sails.on('hook:orm:loaded', extendGameService);
+
+	return gameService;
 
 }();

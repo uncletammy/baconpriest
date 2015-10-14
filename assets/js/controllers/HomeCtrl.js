@@ -16,13 +16,17 @@ angular
 	'$scope', '$rootScope', '$state', '$timeout',
 function($scope, $rootScope, $state, $timeout) {
 
-  $rootScope.appReady.then(function onReady(){
-	$scope.thing = "biggcatontelevision";
-	$scope.allGames = $rootScope.allGames;
 
-	window.buttgames = $rootScope.allGames;
+	$scope.launchGame = function(someGame){
+		someGame.launch(function(){
+			console.log('Launched Game!',arguments);
+		});
+	};
 
-  });
+	$rootScope.viewReady.then(function onReady(){
+		$scope.thing = "biggcatontelevision";
+		$scope.allGames = $rootScope.allGames;
+	});
 
 	$scope.intent = angular.extend($scope.intent||{}, {
 
