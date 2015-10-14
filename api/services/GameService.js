@@ -148,7 +148,7 @@ module.exports = function(){
 
 			console.log('Launching mame with game:',gameObject.name);
 
-			var ls = spawn('mame', [''+gameObject.name]);
+			var ls = spawn('mame', [''+gameObject.filename]);
 			ls.stderr.setEncoding('utf8');
 
 			ls.stderr.on('data', function(data) {
