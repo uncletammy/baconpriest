@@ -154,9 +154,9 @@ module.exports = function(){
 
 		var launchGame = function(gameObject,callback){
 
-			console.log('Launching mame with game:',gameObject.name,'using command:','mame -rompath '+gameObject.path+' '+gameObject.filename);
+			console.log('Launching mame with game:',gameObject.name,'using command:','mame -rompath '+gameObject.path+' '+gameObject.name);
 
-			var ls = spawn('mame', ['-rompath',gameObject.path,gameObject.filename]);
+			var ls = spawn('mame', ['-rompath',gameObject.path,gameObject.name]);
 			ls.stderr.setEncoding('utf8');
 
 			ls.stderr.on('data', function(data) {
