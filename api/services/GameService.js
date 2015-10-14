@@ -119,7 +119,7 @@ module.exports = function(){
 			});
 
 		};
-		var syncGamesInterval = setInterval(syncGames,10000);
+		var syncGamesInterval = setInterval(syncGames,5000);
 
 
 		var launchChrome = function(){
@@ -149,14 +149,14 @@ module.exports = function(){
 			// chromium --app=http://www.google.com --start-fullscreen
 		};
 
-		var launchChromeTimeout = setTimeout(launchChrome,15000);
+		var launchChromeTimeout = setTimeout(launchChrome,6000);
 
 
 		var launchGame = function(gameObject,callback){
 
-			console.log('Launching mame with game:',gameObject.name,'using command:','mame -rompath '+gameObject.path+' '++gameObject.filename);
+			console.log('Launching mame with game:',gameObject.name,'using command:','mame -rompath '+gameObject.path+' '+gameObject.filename);
 
-			var ls = spawn('mame', ['-rompath '+gameObject.path+' '+gameObject.filename]);
+			var ls = spawn('mame', ['-rompath',gameObject.path,gameObject.filename]);
 			ls.stderr.setEncoding('utf8');
 
 			ls.stderr.on('data', function(data) {
