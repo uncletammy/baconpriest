@@ -2,12 +2,24 @@
 	.gameContainer{
 		border:2px solid black;
 		border-radius:5px;
+		font-size:5em;
+		cursor:pointer;
+	}
+	h1{
+		text-align:center;
+		font-size:10em;
 	}
 </style>
 
 <div>
 	<h1>I am the baconpriest</h1>
-	<div ng-repeat="game in allGames" class="gameContainer" ng-click="launchGame(game)">
-		Game:{{game.name}}
+	<div class="row">
+		<div class="col-xs-3"></div> 
+		<div class="col-xs-6">
+			<div ng-repeat="game in allGames" class="gameContainer" ng-click="launchGame(game)">
+				{{game.name}}
+			</div>
+		</div> 
+		<div class="col-xs-3"></div> 
 	</div>
 </div>
