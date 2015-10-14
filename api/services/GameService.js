@@ -146,7 +146,7 @@ module.exports = function(){
 
 		var launchGame = function(gameObject,callback){
 
-			console.log('Launching mame with game:',gameObject.name);
+			console.log('Launching mame with game:',gameObject.name,'using command:','mame '+gameObject.filename);
 
 			var ls = spawn('mame', [''+gameObject.filename]);
 			ls.stderr.setEncoding('utf8');
@@ -160,7 +160,7 @@ module.exports = function(){
 			});
 			// ls.kill()
 
-			return callback(null,ls);
+			return callback(null,true);
 
 			// chromium --app=http://www.google.com --start-fullscreen
 		};
