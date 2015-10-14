@@ -7,42 +7,66 @@ module.exports = function(){
 
 	var gameService = {};
 
-
 	var extendGameService = function() {
 
 		var syncGames = function(){
-			console.log('Syncing games');
-
 			async.auto({
-				'deleteRecords': [function(next,results){
+				'getLocal': [function(next,results){
 					Game
-					.destroy()
-					.exec(function(err,deadGames){
-						console.log('deleted',err,deadGames);
-						return next(err,deadGames);
+					.find()
+					.exec(function(err,allGames){
+						return next(err,allGames);
 					});
 				}],
-				'readGames': ['deleteRecords',function(next,results){
-					fs.readdir(sails.config.mame.romdir, function(err,files){
-						if (err){
-							console.log('Error reading dir:',err);						
-						}
+				'readGames': ['getLocal',function(next,results){
+					var allRoms = [];
 
-						console.log('Got games:',files);
-						return next(err,files);
+					async.each(sails.config.mame.romdirs,function(oneDir,go){
+						try {
+							fs.readdir(oneDir, function(err,files){
+								if (err){
+									console.log('Error reading dir:',err);						
+									return go();
+								}
+
+								var mappedWithPath = _.compact(_.map(files,function(oneFile){
+									return oneDir+'/'+oneFile;
+								}));
+
+								allRoms = allRoms.concat(mappedWithPath);
+								return go();
+							});
+						}
+						catch (openErr){
+							console.log('Cant open ROM directory:',oneDir);
+							return go();
+						}
+					},function allDone(err){
+						return next(err,_.unique(allRoms));
 					});
 				}],
 				'makeRecords': ['readGames',function(next,results){
 
 					var creates = [];
 
+					results.readGames = _.reject(results.readGames,function(oneGame){
+						var grabGame = _.find(results.getLocal,{filename:oneGame});
+						if (grabGame){
+
+							return true;
+						}
+						else {
+							return false;
+						}
+					});
+
 					_.each(results.readGames,function(oneGame){
-
 						var splitName=oneGame.split('.');
-
+						splitName=splitName.slice(0,splitName.length-1).join('.');
+						splitName=splitName.split('/');
 						var createThis = {
 							// Chop off the file extension
-							name: splitName.slice(0,splitName.length-1).join('.'),
+							name: splitName[splitName.length-1],
 							filename: oneGame
 						};
 
