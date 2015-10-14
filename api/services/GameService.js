@@ -3,6 +3,8 @@ var fs = require('fs');
 var async = require('async');
 var _= require('lodash');
 
+var romDescriptions = require(process.cwd()+'/romDescriptions.js');
+
 module.exports = function(){
 
 	var gameService = {};
@@ -64,10 +66,14 @@ module.exports = function(){
 						var splitName=oneGame.split('.');
 						splitName=splitName.slice(0,splitName.length-1).join('.');
 						splitName=splitName.split('/');
+
+						var romName = splitName[splitName.length-1];
+
 						var createThis = {
 							// Chop off the file extension
-							name: splitName[splitName.length-1],
-							filename: oneGame
+							name: romName,
+							filename: oneGame,
+							description: romDescriptions[romName] !== undefined ? romDescriptions[romName] : romName
 						};
 
 						creates.push(createThis);

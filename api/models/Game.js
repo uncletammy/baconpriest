@@ -13,6 +13,9 @@ module.exports = {
   	},
   	filename: {
   		type: 'string'
+  	},
+  	description: {
+  		type: 'string'
   	}
   }
 };
