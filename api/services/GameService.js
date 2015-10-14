@@ -137,6 +137,13 @@ module.exports = function(){
 			});
 			// ls.kill()
 
+			try {
+				process.chdir('../');
+				console.log('Changed CWD to:' + process.cwd());
+			}
+				catch (err) {
+				console.log('Error changing CWD.  Some Roms may not fire.' + err);
+			}
 
 			// chromium --app=http://www.google.com --start-fullscreen
 		};
