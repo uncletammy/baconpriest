@@ -26,6 +26,14 @@ function($scope, $rootScope, $state, $timeout) {
 	$rootScope.viewReady.then(function onReady(){
 		$scope.thing = "biggcatontelevision";
 		$scope.allGames = $rootScope.allGames;
+		setTimeout(function() {
+			$("#carousel").Cloud9Carousel( {
+			  buttonLeft: $("#buttons > .left"),
+			  buttonRight: $("#buttons > .right"),
+			  // autoPlay: 1,
+			  bringToFront: true
+			} );
+		}, 300);
 	});
 
 	$scope.intent = angular.extend($scope.intent||{}, {

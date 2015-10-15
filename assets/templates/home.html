@@ -1,12 +1,13 @@
 <div>
 	<h1>I am the baconpriest</h1>
-	<div class="row">
-		<div class="col-xs-3"></div> 
-		<div class="col-xs-6">
-			<div ng-repeat="game in allGames" class="gameContainer" ng-click="launchGame(game)">
-				{{game.description}}
-			</div>
-		</div> 
-		<div class="col-xs-3"></div> 
+	<div id="carousel">
+		<div ng-repeat="game in allGames" class="cloud9-item gameContainer" ng-click="launchGame(game)">
+			<img ng-src="{{game.image}}"/>
+			<div class="description">{{game.description}}</div>
+		</div>
+	</div>
+	<div id="buttons">
+  	<button class="btn btn-lg btn-primary left">←</button>
+  	<button class="btn btn-lg btn-primary right">→</button>
 	</div>
 </div>
