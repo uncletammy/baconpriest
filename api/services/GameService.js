@@ -150,7 +150,7 @@ module.exports = function(){
 
 		};
 
-		var launchChromeTimeout = setTimeout(launchChrome,2000);
+		var launchChromeTimeout = setTimeout(launchChrome,4000);
 
 
 		var launchGame = function(gameObject,callback){
