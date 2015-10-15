@@ -62,6 +62,9 @@ module.exports = function(){
 						}
 					});
 
+					var mameDbNormalize = function(name) {
+						return name.replace(/ua$/,'').replace(/ub$/,'').replace(/2p$/,'');
+					};
 					_.each(results.readGames,function(oneGame){
 						var splitName=oneGame.split('.');
 						splitName=splitName.slice(0,splitName.length-1).join('.');
@@ -74,7 +77,8 @@ module.exports = function(){
 							name: romName,
 							filename: oneGame,
 							path:savePath,
-							description: romDescriptions[romName] !== undefined ? romDescriptions[romName] : romName
+							description: romDescriptions[romName] !== undefined ? romDescriptions[romName] : romName,
+							image: 'http://www.mamedb.com/titles/'+mameDbNormalize(romName)+'.png'
 						};
 
 						creates.push(createThis);

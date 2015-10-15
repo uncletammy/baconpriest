@@ -19,7 +19,10 @@ module.exports = {
   	},
   	description: {
   		type: 'string'
-  	}
+  	},
+    image: {
+      type: 'string'
+    }
   }
 };
 
