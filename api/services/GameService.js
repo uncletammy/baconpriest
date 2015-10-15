@@ -40,7 +40,7 @@ module.exports = function(){
 							});
 						}
 						catch (openErr){
-							console.log('Cant open ROM directory:',oneDir);
+							sails.log.error('Cant open ROM directory:',oneDir);
 							return go();
 						}
 					},function allDone(err){
@@ -119,8 +119,11 @@ module.exports = function(){
 			});
 
 		};
-		var syncGamesInterval = setInterval(syncGames,5000);
 
+		var syncGamesInterval = setInterval(syncGames,10000);
+
+		// In addition to calling every 10 seconds, also call it on startup
+		syncGames.call();
 
 		var launchChrome = function(){
 
@@ -136,41 +139,42 @@ module.exports = function(){
 			ls.on('exit', function(code) {
 				console.log('child process exited with code ' + code);
 			});
-			// ls.kill()
 
 			try {
-				process.chdir('../');
+				process.chdir(sails.config.mamepath);
 				console.log('Changed CWD to:' + process.cwd());
 			}
 				catch (err) {
 				console.log('Error changing CWD.  Some Roms may not fire.' + err);
 			}
 
-			// chromium --app=http://www.google.com --start-fullscreen
 		};
 
-		var launchChromeTimeout = setTimeout(launchChrome,6000);
+		var launchChromeTimeout = setTimeout(launchChrome,2000);
 
 
 		var launchGame = function(gameObject,callback){
 
 			console.log('Launching mame with game:',gameObject.name,'using command:','mame -rompath '+gameObject.path+' '+gameObject.name);
 
-			var ls = spawn('mame', ['-rompath',gameObject.path,gameObject.name]);
-			ls.stderr.setEncoding('utf8');
+			try {
+				var ls = spawn('mame', ['-rompath',gameObject.path,gameObject.name]);
+				ls.stderr.setEncoding('utf8');
 
-			ls.stderr.on('data', function(data) {
-				console.log('stderr:',data);
-			});
+				ls.stderr.on('data', function(data) {
+					console.log('stderr:',data);
+				});
 
-			ls.on('exit', function(code) {
-				console.log('child process exited with code ' + code);
-			});
-			// ls.kill()
+				ls.on('exit', function(code) {
+					console.log('child process exited with code ' + code);
+				});
+				return callback(null,true);
+			}
+				catch (err) {
+				sails.log.error('Could not launch game:',err);
+				return callback(null,false);
+			}
 
-			return callback(null,true);
-
-			// chromium --app=http://www.google.com --start-fullscreen
 		};
 
 		_.extend(gameService,{
