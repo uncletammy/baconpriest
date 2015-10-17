@@ -13,26 +13,35 @@ module.exports = function(){
 
 	var extendGameService = function() {
 
-		var injectKey = function(someString){
+		var inject = function(commandStuff){
 
-			try {
-
-				console.log('Injecting:',someString);
-
-				var injector = spawn('xdotool', ['key',someString]);
-				injector.stderr.setEncoding('utf8');
-
-				injector.on('error', function(code) {
-					console.log('ERROR:' + code);
-				});
-
-				injector.on('exit', function(code) {
-					console.log('child process exited with code ' + code);
-				});
-
-			} catch (keyErr){
-				sails.log.error('cant inject key:',keyErr);
+			if (typeof commandStuff === 'string'){
+				commandStuff = [commandStuff];
 			}
+
+
+			async.each(commandStuff,function(oneCommand,done){
+				try {
+					console.log('Injecting:',oneCommand);
+
+					var injector = spawn('xdotool', ['key',oneCommand]);
+					injector.stderr.setEncoding('utf8');
+
+					injector.on('error', function(code) {
+						console.log('ERROR:' + code);
+					});
+
+					injector.on('exit', function(code) {
+						console.log('child process exited with code ' + code);
+					});
+
+				} catch (keyErr){
+					sails.log.error('cant inject key:',keyErr);
+				}
+				return done();
+			},function allDone(err){
+				console.log('Commands injected B===D');
+			});
 
 		};
 
@@ -159,7 +168,7 @@ module.exports = function(){
 
 			console.log('Launching Chrome!');
 
-			var ls = spawn('chromium', ['--app=http://localhost:1337','--start-fullscreen']);
+			var ls = spawn('chromium', ['--app=https://localhost:1337','--start-fullscreen']);
 			ls.stderr.setEncoding('utf8');
 
 			ls.stderr.on('data', function(data) {
@@ -213,7 +222,7 @@ module.exports = function(){
 			sync: syncGames,
 			syncGamesInterval: syncGamesInterval,
 			launch: launchGame,
-			injectKey: injectKey
+			inject: inject
 		});
 
 	}

@@ -4,32 +4,26 @@ var interim_transcript = '';
 var finalCount = 0;
 var interimCount = 0;
 var totalCount = 0;
-var recognizing = false;
+// var recognizing = false;
 var flashActive = false;
 
 // Create speech recognition object
 var recognition = new webkitSpeechRecognition();
-
-// Set counter text
-// count.innerHTML = totalCount;
 
 // Set recognition object default properties
 recognition.continuous = true;
 recognition.interimResults = true;
 recognition.lang = 'en-US';
 
-// On recording start callback
-recognition.onstart = function() {
-  recognizing = true;
+recognition.onend = function(){
+    recognition.start();
 }
 
 // On result callback
 // process the audio input
 recognition.onresult = function(event) {
 
-  ////
-  // Transcription
-  ////
+
 
   // Interim transcript for immediate results, but not as accurate
   var interim_transcript = '';
@@ -53,16 +47,27 @@ recognition.onresult = function(event) {
     
     // Detect the word "hibiscus"
     // to reset the counter
-    if(final_transcript.indexOf('hibiscus') > 0){
-      resetCounter();
-      return;
-    }
+    // if(final_transcript.indexOf('hibiscus') > 0){
+    //   resetCounter();
+    //   return;
+    // }
 
     // Populate the final counter with the final string length
     finalCount = final_transcript.length;
-  }
 
 	console.log('final_transcript:',final_transcript);
+
+
+	io.socket.post('/command',{phrase:final_transcript},function(response){
+		console.log('Piped phrase.  Response issued:',arguments);
+	});
+
+	final_transcript = '';
+	// recognition.stop();
+	// recognition.start();
+  }
+
+
 };
 
 function startButton(event) {

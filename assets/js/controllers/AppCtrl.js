@@ -25,6 +25,7 @@ function($scope, $rootScope, $state, $q) {
           $rootScope.allGames.push(new Game(oneGame));
         });
         viewReady.resolve();
+        window.recognition.start();
       });
   });
 

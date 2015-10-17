@@ -28,6 +28,26 @@ module.exports = {
 			console.log('Got game spawn:',spawn);
 			return res.ok();
 		});
+	},
+	command: function(req,res){
+		var phrase = req.param('phrase')&&req.param('phrase').toLowerCase();
+		console.log('Got a phrase:',phrase);
+		if (!phrase){
+			return res.notFound()
+		}
+
+		var commands;
+		if (/make it rain/.test(phrase)){
+			commands = ['4','5','6','7'];
+		} else if (/horse s***/.test(phrase)){
+			commands = ['Escape'];
+		}
+		if (commands){
+			sails.services.gameservice.inject(commands);
+		}
+
+		return res.ok();
+
 	}
 };
 
