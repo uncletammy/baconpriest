@@ -32,12 +32,12 @@ module.exports = function(){
 
 					injector.on('exit', function(code) {
 						console.log('child process exited with code ' + code);
+						return done();
 					});
 
 				} catch (keyErr){
 					sails.log.error('cant inject key:',keyErr);
 				}
-				return done();
 			},function allDone(err){
 				console.log('Commands injected B===D');
 			});
