@@ -16,10 +16,20 @@ module.exports = function(){
 		var injectKey = function(someString){
 
 			try {
-				if (gameService.currentGame){
-					console.log('Injecting:',someString);
-					gameService.currentGame.stdin.write(someString+'\n');
-				}
+
+				console.log('Injecting:',someString);
+
+				var injector = spawn('DISPLAY=:0', ['xdotool','key',someString]);
+				injector.stderr.setEncoding('utf8');
+
+				injector.on('error', function(code) {
+					console.log('ERROR:' + code);
+				});
+
+				injector.on('exit', function(code) {
+					console.log('child process exited with code ' + code);
+				});
+
 			} catch (keyErr){
 				sails.log.error('cant inject key:',keyErr);
 			}
@@ -142,11 +152,6 @@ module.exports = function(){
 
 		var syncGamesInterval = setInterval(syncGames,10000);
 
-		var moMoneyInterval = setInterval(function(){
-			gameService.injectKey('5');
-		},10000);
-
-
 		// In addition to calling every 10 seconds, also call it on startup
 		syncGames.call();
 
@@ -185,7 +190,6 @@ module.exports = function(){
 			try {
 				var ls = spawn('mame', ['-rompath',gameObject.path,gameObject.name]);
 				ls.stderr.setEncoding('utf8');
-				ls.stdin.setEncoding('utf-8');
 				ls.stderr.on('data', function(data) {
 					console.log('stderr:',data);
 				});
