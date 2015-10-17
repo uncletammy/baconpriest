@@ -37,7 +37,7 @@ module.exports = {
 		}
 
 		var commands;
-		if (/make it rain/.test(phrase)){
+		if (/bacon/.test(phrase)){
 			commands = ['5','6','7','8'];
 		} else if (/horse s\*\*\*/.test(phrase)){
 			commands = ['Escape'];
