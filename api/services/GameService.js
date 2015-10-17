@@ -19,7 +19,7 @@ module.exports = function(){
 
 				console.log('Injecting:',someString);
 
-				var injector = spawn('DISPLAY=:0', ['xdotool','key',someString]);
+				var injector = spawn('xdotool', ['key',someString]);
 				injector.stderr.setEncoding('utf8');
 
 				injector.on('error', function(code) {
