@@ -10,6 +10,13 @@
 *
 */
 
+window.launchGame = function(someGame){
+	someGame.launch(function(){
+		console.log('Launched Game!',arguments);
+	});
+};
+window.allGames;
+
 angular
 .module('baconpriest')
 .controller('HomeCtrl', [
@@ -17,15 +24,11 @@ angular
 function($scope, $rootScope, $state, $timeout) {
 
 
-	$scope.launchGame = function(someGame){
-		someGame.launch(function(){
-			console.log('Launched Game!',arguments);
-		});
-	};
+	$scope.launchGame = window.launchGame;
 
 	$rootScope.viewReady.then(function onReady(){
-		$scope.thing = "biggcatontelevision";
 		$scope.allGames = $rootScope.allGames;
+		window.allGames = $rootScope.allGames;
 		setTimeout(function() {
 			$("#carousel").Cloud9Carousel( {
 			  buttonLeft: $("#buttons > .left"),

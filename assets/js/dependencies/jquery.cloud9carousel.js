@@ -278,26 +278,18 @@
     }
 
     this.bindControls = function() {
-      if( options.buttonLeft ) {
-        options.buttonLeft.bind( 'click', function() {
-          self.go( -1 );
-          return false;
-        } );
-      }
 
-      if( options.buttonRight ) {
-        options.buttonRight.bind( 'click', function() {
-          self.go( 1 );
-          return false;
-        } );
-      }
-
-      if( options.mouseWheel ) {
-        $container.bind( 'mousewheel.cloud9', function( event, delta ) {
-          self.go( (delta > 0) ? 1 : -1 );
-          return false;
-        } );
-      }
+      $("body").keydown(function(e) {
+        if(e.keyCode == 37) { // left
+          self.go(1);
+        }
+        else if(e.keyCode == 39) { // right
+          self.go(-1);
+        } else if ([13,49,32].indexOf(e.keyCode) > -1){
+          // Launch whatever game is in the front  
+          $($(damnCarousel.items[self.nearestIndex()])[0].element).trigger('click');
+        }
+      });
 
       if( options.bringToFront ) {
         $container.bind( 'click.cloud9', function( event ) {
@@ -363,19 +355,22 @@
         yOrigin: null,
         xRadius: null,
         yRadius: null,
-        farScale: 0.5,        // scale of the farthest item
+        farScale: 0.3,        // scale of the farthest item
         transforms: true,     // enable CSS transforms
         smooth: true,         // enable smooth animation via requestAnimationFrame()
         fps: 30,              // fixed frames per second (if smooth animation is off)
         speed: 4,             // positive number
-        autoPlay: 0,          // [ 0: off | number of items (integer recommended, positive is clockwise) ]
-        autoPlayDelay: 4000,
+        autoPlay: 1,          // [ 0: off | number of items (integer recommended, positive is clockwise) ]
+        autoPlayDelay: 30000,
         bringToFront: false,
         itemClass: 'cloud9-item',
         handle: 'carousel'
       }, options );
 
-      $(this).data( options.handle, new Carousel( this, options ) );
+
+      var damnCarousel = new Carousel( this, options );
+      window.damnCarousel = damnCarousel;
+      $(this).data( options.handle, damnCarousel );
     } );
   }
 })( window.jQuery || window.Zepto );
