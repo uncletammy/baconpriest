@@ -39,7 +39,7 @@ module.exports = {
 		var commands;
 		if (/make it rain/.test(phrase)){
 			commands = ['4','5','6','7'];
-		} else if (/horse s***/.test(phrase)){
+		} else if (/horse s\*\*\*/.test(phrase)){
 			commands = ['Escape'];
 		}
 		if (commands){
