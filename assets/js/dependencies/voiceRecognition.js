@@ -36,7 +36,7 @@ recognition.onresult = function(event) {
       interimCount = 0;
     }
     else{
-      if(event.results[i][0].confidence > 0.8){
+      if(event.results[i][0].confidence > 0.4){
         interim_transcript = event.results[i][0].transcript;
       }
     }
