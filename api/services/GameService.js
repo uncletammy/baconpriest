@@ -19,7 +19,7 @@ module.exports = function(){
 				commandStuff = [commandStuff];
 			}
 
-			async.each(commandStuff,function(oneCommand,done){
+			async.eachSeries(commandStuff,function(oneCommand,done){
 				try {
 					console.log('Injecting:',oneCommand);
 
