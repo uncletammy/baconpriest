@@ -37,6 +37,7 @@ module.exports.routes = {
   },
   'GET /games': 'GameController.find',
   'POST /games': 'GameController.add',
-  'POST /play': 'GameController.play'
+  'POST /play': 'GameController.play',
+  'POST /command': 'GameController.command'
 
 };
