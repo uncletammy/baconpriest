@@ -15,6 +15,16 @@ window.launchGame = function(someGame){
 		console.log('Launched Game!',arguments);
 	});
 };
+
+window.gameInFront = function(someGame){
+	console.log('someGame:',someGame);
+	if (window.damnCarousel&&window.damnCarousel.items){
+		return $($(window.damnCarousel.items[window.damnCarousel.nearestIndex()])[0].element).data()['gameid'] == someGame.id;	
+	} else {
+		return false;
+	}
+};
+
 window.allGames;
 
 angular
@@ -23,6 +33,7 @@ angular
 	'$scope', '$rootScope', '$state', '$timeout',
 function($scope, $rootScope, $state, $timeout) {
 
+	$scope.gameInFront = gameInFront;
 
 	$scope.launchGame = window.launchGame;
 

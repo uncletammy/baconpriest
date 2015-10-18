@@ -1,8 +1,8 @@
-<div>
-	<h1>I am the baconpriest</h1>
+<div class="carouselContainer">
 	<div id="carousel">
-		<div ng-repeat="game in allGames" class="cloud9-item gameContainer" ng-click="launchGame(game)">
+		<div ng-repeat="game in allGames" class="cloud9-item gameContainer" ng-click="launchGame(game)" data-gameid="{{game.id}}">
 			<img ng-src="{{game.image}}"/>
+			<!-- <div class="description" ng-if="gameInFront(game)">{{game.description}}</div> -->
 			<div class="description">{{game.description}}</div>
 		</div>
 	</div>
