@@ -40,7 +40,7 @@ module.exports = function(){
 							});
 						}
 						catch (openErr){
-							sails.log.error('Cant open ROM directory:',oneDir);
+							console.log('Cant open ROM directory:',oneDir);
 							return go();
 						}
 					},function allDone(err){
@@ -145,11 +145,11 @@ module.exports = function(){
 			});
 
 			try {
-				process.chdir(sails.config.mamepath);
+				process.chdir(sails.config.mame.mamepath);
 				console.log('Changed CWD to:' + process.cwd());
 			}
 				catch (err) {
-				console.log('Error changing CWD.  Some Roms may not fire.' + err);
+				console.log('Error changing CWD to',sails.config.mame.mamepath,'.  Some Roms may not fire.' + err);
 			}
 
 		};
@@ -175,7 +175,7 @@ module.exports = function(){
 				return callback(null,true);
 			}
 				catch (err) {
-				sails.log.error('Could not launch game:',err);
+				console.log('Could not launch game:',err);
 				return callback(null,false);
 			}
 
