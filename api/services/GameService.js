@@ -193,7 +193,28 @@ module.exports = function(){
 
 	}
 
-	sails.on('hook:orm:loaded', extendGameService);
+	sails.on('hook:orm:loaded', function(){
+
+		async.auto({
+			'deleteGames': function(next){
+				Game
+				.destroy()
+				.exec(function(err,deadGames){
+					if (err){
+						console.log('Error deleting games:',err);
+					}
+					return next();
+				});
+			},
+			'buildGames': ['deleteGames',function(next){
+				extendGameService.call();
+				return next();
+			}]
+		},function(err,results){
+			console.log('All done!');
+		});
+
+	});
 
 	return gameService;
 
