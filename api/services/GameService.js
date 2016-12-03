@@ -169,7 +169,7 @@ module.exports = function(){
 					console.log('stderr:',data);
 				});
 
-				ls.stderr.on('error', function(data) {
+				ls.on('error', function(data) {
 					console.log('Mame error:',data);
 				});
 
