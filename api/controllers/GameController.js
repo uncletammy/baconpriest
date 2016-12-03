@@ -25,7 +25,7 @@ module.exports = {
 		console.log('trying to launch:',gameToLaunch);
 		
 		sails.services.gameservice.launch(gameToLaunch,function(err,spawn){
-			console.log('Got game spawn:',spawn);
+			console.log('Got game spawn:',err,spawn);
 			return res.ok();
 		});
 	}

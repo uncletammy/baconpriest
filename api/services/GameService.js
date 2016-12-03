@@ -169,6 +169,10 @@ module.exports = function(){
 					console.log('stderr:',data);
 				});
 
+				ls.stderr.on('error', function(data) {
+					console.log('Mame error:',data);
+				});
+
 				ls.on('exit', function(code) {
 					console.log('child process exited with code ' + code);
 				});
