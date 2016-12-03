@@ -78,7 +78,7 @@ module.exports = function(){
 							filename: oneGame,
 							path:savePath,
 							description: romDescriptions[romName] !== undefined ? romDescriptions[romName] : romName,
-							image: 'http://www.mamedb.com/titles/'+mameDbNormalize(romName)+'.png'
+							image: 'https://edgeemu.net/screenshots/mame/Named_Titles/'+mameDbNormalize(romName)+'.png'
 						};
 
 						creates.push(createThis);
