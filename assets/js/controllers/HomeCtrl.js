@@ -24,6 +24,10 @@ angular
 function($scope, $rootScope, $state, $timeout) {
 
 
+	$scope.showDescription = function(someElement){
+		return false;
+	};
+
 	$scope.launchGame = window.launchGame;
 
 	$rootScope.viewReady.then(function onReady(){

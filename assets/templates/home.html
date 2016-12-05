@@ -2,8 +2,8 @@
 	<h1>I am the baconpriest</h1>
 	<div id="carousel">
 		<div ng-repeat="game in allGames" class="cloud9-item gameContainer" ng-click="launchGame(game)">
-			<img ng-src="{{game.image}}"/>
-			<div class="description">{{game.description}}</div>
+			<img ng-src="{{game.image}}" class="preview-image"/>
+			<div class="description" ng-hide="showDescription(this)">{{game.description}}</div>
 		</div>
 	</div>
 </div>
