@@ -5,12 +5,12 @@
     <div class="game-row" ng-repeat="category in getCategories()" id="row-{{category.id}}" ng-class="{'game-row-selected':category.selected}">
 
       <div class="game-row-header">
-        <h1>{{category.name}}</h1>isSelected:{{category.selected}}
+        <h1>{{category.name}}</h1><!-- isSelected:{{category.selected}} -->
       </div>
 
       <div class="tag-container">
         <div class="game-col" ng-repeat="game in category.games" id="col-{{game.id}}" ng-class="{'game-col-selected':game.selected}">
-          <p>{{game.prettyname}}</p>selected:{{game.selected}}
+          <p>{{game.prettyname}}</p><!-- selected:{{game.selected}} -->
           <img ng-src="{{game.image}}" width="300" height="300">
           <p>{{game.description}}</p>
         </div>
