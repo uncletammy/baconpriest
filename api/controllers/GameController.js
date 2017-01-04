@@ -13,7 +13,16 @@ module.exports = {
 			if (err){
 				return res.negotiate(err);
 			}
-			return res.json(games);
+
+			var gamesUnique = _.reduce(games,function(keepers,oneGame){
+				var doesExist = _.find(keepers,{prettyname:oneGame.prettyname});
+				if (!doesExist){
+					keepers.push(oneGame);
+				}
+				return keepers;
+			},[]);
+
+			return res.json(gamesUnique);
 		});
 	},
 	add: function(req,res){

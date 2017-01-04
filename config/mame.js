@@ -13,13 +13,13 @@ module.exports.mame = {
     "name": "3wonders",
     "prettyname": "3wonders",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "9ballsht",
     "prettyname": "9ballsht",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "alien3",
@@ -31,13 +31,13 @@ module.exports.mame = {
     "name": "altbeast",
     "prettyname": "altbeast",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "arkangc",
     "prettyname": "arkangc",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "astdelux",
@@ -55,103 +55,103 @@ module.exports.mame = {
     "name": "baddudes",
     "prettyname": "baddudes",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "batrider",
     "prettyname": "batrider",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "berzerk",
     "prettyname": "berzerk",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "bgaregga",
     "prettyname": "bgaregga",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "bjtwin",
     "prettyname": "bjtwin",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "blktiger",
     "prettyname": "blktiger",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "bloodbro",
     "prettyname": "bloodbro",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "bombjack",
     "prettyname": "bombjack",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "boogwing",
     "prettyname": "boogwing",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "btime",
     "prettyname": "btime",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "bublbob2",
     "prettyname": "bublbob2",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "bubsymphu",
     "prettyname": "bubsymphu",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "bucky",
     "prettyname": "bucky",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "bwidow",
     "prettyname": "bwidow",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "cabal",
     "prettyname": "cabal",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "captaven",
     "prettyname": "captaven",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "captcomm",
     "prettyname": "captcomm",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "centiped",
@@ -163,145 +163,145 @@ module.exports.mame = {
     "name": "choplift",
     "prettyname": "choplift",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "cninja",
     "prettyname": "cninja",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "contra",
     "prettyname": "contra",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "crimfght",
     "prettyname": "crimfght",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "cyberbal",
     "prettyname": "cyberbal",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "dariusg",
     "prettyname": "dariusg",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "dbreed",
     "prettyname": "dbreed",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "ddonpach",
     "prettyname": "ddonpach",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "defender",
     "prettyname": "defender",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "dkong",
     "prettyname": "dkong",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "dkong",
     "prettyname": "dkong",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "dkongx",
     "prettyname": "dkongx",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "docastle",
     "prettyname": "docastle",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "donpachi",
     "prettyname": "donpachi",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "dragnblz",
     "prettyname": "dragnblz",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "drgnmst",
     "prettyname": "drgnmst",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "drmario",
     "prettyname": "drmario",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "dsaber",
     "prettyname": "dsaber",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "eagle",
     "prettyname": "eagle",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "elevator",
     "prettyname": "elevator",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "elvactr",
     "prettyname": "elvactr",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "esprade",
     "prettyname": "esprade",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "ffight",
     "prettyname": "ffight",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "footchmp",
     "prettyname": "footchmp",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "frogger",
@@ -313,109 +313,109 @@ module.exports.mame = {
     "name": "gaiapols",
     "prettyname": "gaiapols",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "gberet",
     "prettyname": "gberet",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "ghouls",
     "prettyname": "ghouls",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "gnbarich",
     "prettyname": "gnbarich",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "gng",
     "prettyname": "gng",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "gng",
     "prettyname": "gng",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "goldnaxe",
     "prettyname": "goldnaxe",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "gorf",
     "prettyname": "gorf",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "grdians",
     "prettyname": "grdians",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "gtg",
     "prettyname": "gtg",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "gunbird2",
     "prettyname": "gunbird2",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "guwange",
     "prettyname": "guwange",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "gyruss",
     "prettyname": "gyruss",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "inthunt",
     "prettyname": "inthunt",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "jojobane",
     "prettyname": "jojobane",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "joust",
     "prettyname": "joust",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "junglek",
     "prettyname": "junglek",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "karianx",
     "prettyname": "karianx",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "kinst",
@@ -433,37 +433,37 @@ module.exports.mame = {
     "name": "knights",
     "prettyname": "knights",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "kod",
     "prettyname": "kod",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "kungfum",
     "prettyname": "kungfum",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "lethalen",
     "prettyname": "lethalen",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "llander",
     "prettyname": "llander",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "mappy",
     "prettyname": "mappy",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "mario",
@@ -475,19 +475,19 @@ module.exports.mame = {
     "name": "metamrph",
     "prettyname": "metamrph",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "mhavoc",
     "prettyname": "mhavoc",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "missile",
     "prettyname": "missile",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "mk",
@@ -511,43 +511,43 @@ module.exports.mame = {
     "name": "moomesa",
     "prettyname": "moomesa",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "mpatrol",
     "prettyname": "mpatrol",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "ms5pcb",
     "prettyname": "ms5pcb",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "mslug4",
     "prettyname": "mslug4",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "mslugx",
     "prettyname": "mslugx",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "mtrap",
     "prettyname": "mtrap",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "mwalk",
     "prettyname": "mwalk",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "nbajamte1",
@@ -559,7 +559,7 @@ module.exports.mame = {
     "name": "nbbatman",
     "prettyname": "nbbatman",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "nibbler",
@@ -571,7 +571,7 @@ module.exports.mame = {
     "name": "outrun",
     "prettyname": "outrun",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "pacman",
@@ -583,157 +583,157 @@ module.exports.mame = {
     "name": "pengo",
     "prettyname": "pengo",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "prehisle",
     "prettyname": "prehisle",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "psychic5",
     "prettyname": "psychic5",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "puchicar",
     "prettyname": "puchicar",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "punchout",
     "prettyname": "punchout",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "puyopuy2",
     "prettyname": "puyopuy2",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "qbert",
     "prettyname": "qbert",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "qix",
     "prettyname": "qix",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "raiden",
     "prettyname": "raiden",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "rallybik",
     "prettyname": "rallybik",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "rallyx",
     "prettyname": "rallyx",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "rampart",
     "prettyname": "rampart",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "rastan",
     "prettyname": "rastan",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "robotron",
     "prettyname": "robotron",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "rtype",
     "prettyname": "rtype",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "rtype2",
     "prettyname": "rtype2",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "rtypeleo",
     "prettyname": "rtypeleo",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "s1945ii",
     "prettyname": "s1945ii",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "s1945iii",
     "prettyname": "s1945iii",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "samurai",
     "prettyname": "samurai",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "samuraia",
     "prettyname": "samuraia",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "sbrkout",
     "prettyname": "sbrkout",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "seawolf",
     "prettyname": "seawolf",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "shadoww",
     "prettyname": "shadoww",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "shinobi",
     "prettyname": "shinobi",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "sicv",
     "prettyname": "sicv",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "simpsons",
@@ -745,181 +745,181 @@ module.exports.mame = {
     "name": "smashtv",
     "prettyname": "smashtv",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "snowbros",
     "prettyname": "snowbros",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "spacduel",
     "prettyname": "spacduel",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "srmdb",
     "prettyname": "srmdb",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "starcas",
     "prettyname": "starcas",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "stargate",
     "prettyname": "stargate",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "starw",
     "prettyname": "starw",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "strider",
     "prettyname": "strider",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "tehkanwc",
     "prettyname": "tehkanwc",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "tempest",
     "prettyname": "tempest",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "term2",
     "prettyname": "term2",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "timeplt",
     "prettyname": "timeplt",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "trackfld",
     "prettyname": "trackfld",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "trog",
     "prettyname": "trog",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "truxton2",
     "prettyname": "truxton2",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "uccops",
     "prettyname": "uccops",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "umk3",
     "prettyname": "umk3",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "uopoko",
     "prettyname": "uopoko",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "vanguard",
     "prettyname": "vanguard",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "vendetta",
     "prettyname": "vendetta",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "vigilant",
     "prettyname": "vigilant",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "viostorm",
     "prettyname": "viostorm",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "vr",
     "prettyname": "vr",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "wardner",
     "prettyname": "wardner",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "warlords",
     "prettyname": "warlords",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "wboy",
     "prettyname": "wboy",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "willow",
     "prettyname": "willow",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "wow",
     "prettyname": "wow",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "wwfmania",
     "prettyname": "wwfmania",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "wwfwfest",
     "prettyname": "wwfwfest",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   },
   {
     "name": "xmen",
@@ -931,6 +931,6 @@ module.exports.mame = {
     "name": "zaxxon",
     "prettyname": "zaxxon",
     "description": "",
-    "tags": []
+    "tags": ["uncategorized"]
   }]
 };
