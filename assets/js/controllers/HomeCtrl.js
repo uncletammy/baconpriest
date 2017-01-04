@@ -11,40 +11,51 @@
 */
 
 window.launchGame = function(someGame){
-	someGame.launch(function(){
-		console.log('Launched Game!',arguments);
-	});
+  someGame.launch(function(){
+    console.log('Launched Game!',arguments);
+  });
 };
 window.allGames;
 
 angular
 .module('baconpriest')
 .controller('HomeCtrl', [
-	'$scope', '$rootScope', '$state', '$timeout',
-function($scope, $rootScope, $state, $timeout) {
+  '$scope', '$rootScope', '$state', '$timeout', 'uiGames','uiManager',
+function($scope, $rootScope, $state, $timeout, uiGames, uiManager) {
 
 
-	$scope.showDescription = function(someElement){
-		return false;
-	};
+  $scope.getTags = function(someElement){
+    return _.uniq(_.flatten(_.pluck(uiGames,'tags')));
+  };
 
-	$scope.launchGame = window.launchGame;
+  $scope.getCategories = function(){
+    return uiGames;
+  };
 
-	$rootScope.viewReady.then(function onReady(){
-		$scope.allGames = $rootScope.allGames;
-		window.allGames = $rootScope.allGames;
-		setTimeout(function() {
-			$("#carousel").Cloud9Carousel( {
-			  buttonLeft: $("#buttons > .left"),
-			  buttonRight: $("#buttons > .right"),
-			  // autoPlay: 1,
-			  bringToFront: true
-			} );
-		}, 300);
-	});
+  $scope.launchGame = window.launchGame;
 
-	$scope.intent = angular.extend($scope.intent||{}, {
+  uiGames
+  .fetch()
+  .then(function(){
+    console.log('Got Games now!');
+    console.log(uiGames);
 
-	});
+    uiManager
+    .setup()
+    .then(function(){
+      console.log('Keypress events registered');
+    });
+
+  });
+
+
+  // $rootScope.viewReady.then(function onReady(){
+
+
+  // });
+
+  $scope.intent = angular.extend($scope.intent||{}, {
+
+  });
 
 }]);

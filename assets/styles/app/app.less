@@ -1,46 +1,85 @@
 html, body{
 	height:100%;
-	overflow-y:hidden;
 }
 
 body {
 	background: url(/images/baconpriest_1024.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
+	background-attachment: fixed;
 }
 
-.gameContainer{
-	font-size:2em;
-	cursor:pointer;
-	color:#c9c9c9;
-	text-align:center;
+#game-container {
+	color: #c9c9c9;
+	text-align: center;
+
+	.game-row {
+
+		-webkit-animation-duration: .5s;
+		-webkit-animation-delay: 0s;
+
+		-moz-animation-duration: .5s;
+		-moz-animation-delay: 0s;
+
+		display: inherit;
+		padding: 5px;
+		margin: 5px;
+	}
+
+	.game-row-selected {
+		.game-row;
+		border:2px solid white;
+		border-radius:10px;
+	}
+	.game-row-hidden {
+		.game-row;
+		display: none;
+	}
+
+	.tag-container {
+		display: flex;
+		.game-col {
+			cursor: pointer;
+			display: block;
+			padding:5px;
+			margin:5px;
+		}
+		.game-col-selected {
+			.game-col;
+			border:2px solid white;
+			border-radius:10px;
+		}
+		.game-col-hidden {
+			.game-col;
+			display:none;
+		}
+	}
 }
+
+
 
 h1{
 	text-align:center;
 	font-size:3em;
-	color:black;
+	color:white;
+}
+h3{
+	text-align:left;
+	font-size:2.5em;
+	color:white;
 }
 
-#carousel {
-  height: 450px;
-  position: relative;
-  overflow: hidden;
-  background: #000000cc;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 100px;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  margin: 0 40px;
+p{
+	text-align:center;
+	font-size:2em;
+	color:white;
+}
 
 
-	.preview-image{
-		max-width:150px;
-		width:150px;
-		max-height:150px;
-		height:auto;
-	}
-
+.preview-image{
+	max-width:300px;
+	width:300px;
+	max-height:300px;
 }
 
 #buttons {

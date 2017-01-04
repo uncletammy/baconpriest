@@ -37,7 +37,8 @@ var jsFilesToInject = [
 
   // Some application logic needs to load first
   'js/baconpriest.module.js',
-
+  'js/factories/uiArray.array.js',
+  'js/factories/uiGames.array.js',
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.

@@ -72,12 +72,18 @@ module.exports = function(){
 						var romName = splitName.pop();
 						var savePath =  splitName.join('/');
 
+						var override = _.find(sails.config.mame.games,{name:romName}) || {};
+
 						var createThis = {
 							// Chop off the file extension
 							name: romName,
 							filename: oneGame,
+							prettyname: override.prettyname || romDescriptions[romName] ? romDescriptions[romName] : romName,
+							tags: override.tags || [],
 							path:savePath,
-							description: romDescriptions[romName] !== undefined ? romDescriptions[romName] : romName,
+							description: override.description || romDescriptions[romName] ? romDescriptions[romName] : romName,
+							hint: override.hint || 'You are on your own kid...',
+							version: romDescriptions[romName] ? romDescriptions[romName] : romName,
 							image: 'https://edgeemu.net/screenshots/mame/Named_Titles/'+mameDbNormalize(romName)+'.png'
 						};
 
@@ -124,7 +130,7 @@ module.exports = function(){
 
 		};
 
-		var syncGamesInterval = setInterval(syncGames,10000);
+		var syncGamesInterval = setInterval(syncGames,30000);
 
 		// In addition to calling every 10 seconds, also call it on startup
 		syncGames.call();
@@ -155,7 +161,6 @@ module.exports = function(){
 		};
 
 		var launchChromeTimeout = setTimeout(launchChrome,4000);
-
 
 		var launchGame = function(gameObject,callback){
 
@@ -191,7 +196,7 @@ module.exports = function(){
 			launch: launchGame
 		});
 
-	}
+	};
 
 	sails.on('hook:orm:loaded', function(){
 

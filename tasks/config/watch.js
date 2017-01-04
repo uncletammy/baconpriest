@@ -27,6 +27,10 @@ module.exports = function(grunt) {
 
 			// When assets are changed:
 			tasks: ['syncAssets' , 'linkAssets']
+		},
+		mamestuff: {
+			files: ['config/mame.js'],
+			tasks: [function(){console.log('ITS HAPPENING!');console.log('arguments:',arguments);}]
 		}
 	});
 

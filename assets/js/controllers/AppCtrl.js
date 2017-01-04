@@ -1,7 +1,7 @@
 angular.module('baconpriest')
 .controller('AppCtrl', [
-        '$scope', '$rootScope', '$state', '$q',
-function($scope, $rootScope, $state, $q) {
+        '$scope', '$rootScope', '$state', '$q','uiGames',
+function($scope, $rootScope, $state, $q, uiGames) {
 
   $scope.allGames = [];
   $rootScope.allGames = [];
@@ -19,13 +19,8 @@ function($scope, $rootScope, $state, $q) {
   })
   .finally(function eitherWay(){
 
-      io.socket.get('/games',function(serverResponse){
-        _.each(serverResponse,function(oneGame){
-          console.log('pushing:',oneGame.name);
-          $rootScope.allGames.push(new Game(oneGame));
-        });
-        viewReady.resolve();
-      });
+    viewReady.resolve();
+
   });
 
   appReady.resolve();

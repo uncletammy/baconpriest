@@ -1,9 +1,21 @@
 <div>
-	<h1>I am the baconpriest</h1>
-	<div id="carousel">
-		<div ng-repeat="game in allGames" class="cloud9-item gameContainer" ng-click="launchGame(game)">
-			<img ng-src="{{game.image}}" class="preview-image"/>
-			<div class="description" ng-hide="showDescription(this)">{{game.description}}</div>
-		</div>
-	</div>
+
+  <div id="game-container">
+
+    <div class="game-row" ng-repeat="category in getCategories()" id="row-{{category.id}}" ng-class="{'game-row-selected':category.selected}">
+
+      <div class="game-row-header">
+        <h1>{{category.name}}</h1>isSelected:{{category.selected}}
+      </div>
+
+      <div class="tag-container">
+        <div class="game-col" ng-repeat="game in category.games" id="col-{{game.id}}" ng-class="{'game-col-selected':game.selected}">
+          <p>{{game.prettyname}}</p>selected:{{game.selected}}
+          <img ng-src="{{game.image}}" width="300" height="300">
+          <p>{{game.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

@@ -11,7 +11,6 @@ module.exports = {
 		.find()
 		.exec(function(err,games){
 			if (err){
-				console.log('Horseshit!',err);
 				return res.negotiate(err);
 			}
 			return res.json(games);
@@ -24,7 +23,13 @@ module.exports = {
 		var gameToLaunch = req.param('game');
 		console.log('trying to launch:',gameToLaunch);
 		
-		sails.services.gameservice.launch(gameToLaunch,function(err,spawn){
+		sails
+		.services
+		.gameservice
+		.launch(gameToLaunch,function(err,spawn){
+			if (err){
+				return res.serverError();
+			}
 			console.log('Got game spawn:',err,spawn);
 			return res.ok();
 		});
