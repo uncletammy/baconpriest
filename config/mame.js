@@ -1,13 +1,13 @@
 module.exports.mame = {
 	mamepath: '/usr/games/mame',
-	romdirs: ['/home/mame/roms','/home/tink/node/nicksProjects/baconpriest/roms'],
-	gameartdirs: ['/home/mame/gameart','/home/tink/node/nicksProjects/baconpriest/gameart'],
+	romdirs: ['/home/mame/roms','/home/tink/node/nicksProjects/uncletammy/baconpriest/roms'],
+	gameartdirs: ['/home/mame/gameart','/home/tink/node/nicksProjects/uncletammy/baconpriest/gameart'],
 	games: [
   {
     "name": "1943",
     "prettyname": "1943",
     "description": "Kill fascists from the comfort of a badass WWII era bomber.",
-    "tags": ["2 player","airplanes"]
+    "tags": ["airplanes"]
   },
   {
     "name": "3wonders",
@@ -25,7 +25,7 @@ module.exports.mame = {
     "name": "alien3",
     "prettyname": "alien3",
     "description": "Walk around and shoot aliens!",
-    "tags": ["2 player","first person shooter"]
+    "tags": ["first person shooter"]
   },
   {
     "name": "altbeast",
@@ -175,13 +175,13 @@ module.exports.mame = {
     "name": "contra",
     "prettyname": "contra",
     "description": "",
-    "tags": ["uncategorized"]
+    "tags": ["uncategorized","GUNS!"]
   },
   {
     "name": "crimfght",
     "prettyname": "crimfght",
     "description": "",
-    "tags": ["uncategorized"]
+    "tags": ["4 player"]
   },
   {
     "name": "cyberbal",
@@ -217,19 +217,19 @@ module.exports.mame = {
     "name": "dkong",
     "prettyname": "dkong",
     "description": "",
-    "tags": ["uncategorized"]
+    "tags": ["nintendo"]
   },
   {
     "name": "dkong",
     "prettyname": "dkong",
     "description": "",
-    "tags": ["uncategorized"]
+    "tags": ["nintendo"]
   },
   {
     "name": "dkongx",
     "prettyname": "dkongx",
     "description": "",
-    "tags": ["uncategorized"]
+    "tags": ["nintendo"]
   },
   {
     "name": "docastle",
@@ -259,7 +259,7 @@ module.exports.mame = {
     "name": "drmario",
     "prettyname": "drmario",
     "description": "",
-    "tags": ["uncategorized"]
+    "tags": [ "nintendo"]
   },
   {
     "name": "dsaber",
@@ -403,7 +403,7 @@ module.exports.mame = {
     "name": "joust",
     "prettyname": "joust",
     "description": "",
-    "tags": ["uncategorized"]
+    "tags": ["classic"]
   },
   {
     "name": "junglek",
@@ -421,13 +421,13 @@ module.exports.mame = {
     "name": "kinst",
     "prettyname": "kinst",
     "description": "",
-    "tags": ["2 player","meat slapping"]
+    "tags": ["violence"]
   },
   {
     "name": "kinst2",
     "prettyname": "kinst2",
     "description": "",
-    "tags": ["2 player","meat slapping"]
+    "tags": ["violence"]
   },
   {
     "name": "knights",
@@ -469,7 +469,7 @@ module.exports.mame = {
     "name": "mario",
     "prettyname": "mario",
     "description": "",
-    "tags": ["Nintendo"]
+    "tags": ["nintendo"]
   },
   {
     "name": "metamrph",
@@ -493,19 +493,19 @@ module.exports.mame = {
     "name": "mk",
     "prettyname": "mk",
     "description": "",
-    "tags": ["2 player","meat slapping"]
+    "tags": ["violence"]
   },
   {
     "name": "mk2",
     "prettyname": "mk2",
     "description": "",
-    "tags": ["2 player","meat slapping"]
+    "tags": ["violence"]
   },
   {
     "name": "mk3",
     "prettyname": "mk3",
     "description": "",
-    "tags": ["2 player","meat slapping"]
+    "tags": ["violence"]
   },
   {
     "name": "moomesa",
@@ -553,7 +553,7 @@ module.exports.mame = {
     "name": "nbajamte1",
     "prettyname": "nbajamte1",
     "description": "",
-    "tags": ["4 player","Sports"]
+    "tags": ["4 player","sports"]
   },
   {
     "name": "nbbatman",
@@ -607,7 +607,7 @@ module.exports.mame = {
     "name": "punchout",
     "prettyname": "punchout",
     "description": "",
-    "tags": ["uncategorized"]
+    "tags": ["sports"]
   },
   {
     "name": "puyopuy2",
@@ -637,13 +637,13 @@ module.exports.mame = {
     "name": "rallybik",
     "prettyname": "rallybik",
     "description": "",
-    "tags": ["uncategorized"]
+    "tags": ["sports"]
   },
   {
     "name": "rallyx",
     "prettyname": "rallyx",
     "description": "",
-    "tags": ["uncategorized"]
+    "tags": ["sports"]
   },
   {
     "name": "rampart",
@@ -817,7 +817,7 @@ module.exports.mame = {
     "name": "trackfld",
     "prettyname": "trackfld",
     "description": "",
-    "tags": ["uncategorized"]
+    "tags": ["sports"]
   },
   {
     "name": "trog",
@@ -913,13 +913,13 @@ module.exports.mame = {
     "name": "wwfmania",
     "prettyname": "wwfmania",
     "description": "",
-    "tags": ["uncategorized"]
+    "tags": ["sports"]
   },
   {
     "name": "wwfwfest",
     "prettyname": "wwfwfest",
     "description": "",
-    "tags": ["uncategorized"]
+    "tags": ["sports"]
   },
   {
     "name": "xmen",

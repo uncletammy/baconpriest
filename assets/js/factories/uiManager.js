@@ -21,11 +21,8 @@ angular.module('baconpriest').factory('uiManager', [
       return this;
     };
 
-    Manager.prototype.changeRow = function(someNumber){
-      var self = this;
+    Manager.prototype.changeRow = async function(someNumber){
       var altered;
-
-      var i = $q.defer();
 
       var oldTopRow = uiGames[0];
       oldTopRow.selected = false;
@@ -46,23 +43,22 @@ angular.module('baconpriest').factory('uiManager', [
       newTopRow.selected = true;
       newTopRow.games[0].toggleSelected();
 
-      uiGames
-      .extend([newTopRow,oldTopRow])
-      .then(function(uiGames){
-        console.log('uiGames now:',uiGames);
-        return i.resolve(uiGames);
-      });
+      try {
+        await uiGames.extend([newTopRow,oldTopRow]);
+      }
+      catch(nope) {
+        console.log('no worky',nope);
+      }
 
-      return i.promise;
+      return uiGames;
     };
 
-    Manager.prototype.changeCol = function(someNumber){
-      var self = this;
+    Manager.prototype.changeCol = async function(someNumber){
       var altered;
-
-      var i = $q.defer();
+      console.log('changing col to:', someNumber);
 
       var oldFirstRow = uiGames[0];
+      console.log('toggling', oldFirstRow.games[0].name);
       oldFirstRow.games[0].toggleSelected();
 
       if (someNumber > 0){
@@ -71,106 +67,79 @@ angular.module('baconpriest').factory('uiManager', [
       else if (someNumber < 0){
         oldFirstRow.games.unshift(oldFirstRow.games.pop());
       }
+      console.log('Now toggling', oldFirstRow.games[0].name);
 
       oldFirstRow.games[0].toggleSelected();
 
-      uiGames
-      .extend([oldFirstRow])
-      .then(function(uiGames){
-        console.log('uiGames now:',uiGames);
-        return i.resolve(uiGames);
-      });
+      try {
+        await uiGames.extend([oldFirstRow]);
+      }
+      catch(nope) {
+        console.log('no worky',nope);
+      }
 
-      return i.promise;
+      return uiGames;
     };
 
 
     Manager.prototype.processKeypress = function(someKey){
-      var self = this;
-
       console.log('Someone pressed the key called:',someKey);
-      console.log(typeof this.setup);
-
-      var equivalentValue = _.reduce(_.keys(keyEquivalents),function(winner,oneKeyName){
-        if (!winner && keyEquivalents[oneKeyName].indexOf(someKey) > -1){
-          return oneKeyName;
-        }
-        return undefined;
-      },undefined);
+      // var equivalentValue = _.reduce(_.keys(keyEquivalents),function(winner,oneKeyName){
+      //   if (!winner && keyEquivalents[oneKeyName].indexOf(someKey) > -1){
+      //     return oneKeyName;
+      //   }
+      //   return undefined;
+      // }, undefined);
 
       switch (someKey){
         case 'up':
 
           var selectedRow = _.find(uiGames,{selected:true}) || uiGames[0];
           $('#row-'+selectedRow.id).removeClass('game-row-selected');
-          $('#row-'+selectedRow.id).addClass('animated bounceOutLeft');
-          $('#row-'+selectedRow.id).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
 
-            $('#row-'+selectedRow.id).removeClass('animated bounceOutLeft');
-
-            self
-            .changeRow(-1)
-            .then(function(uiGames){
-              console.log('updated uiGames after hitting up',_.where(uiGames,{selected:true}).length,'categories selected.');
-            });
-
+          return this
+          .changeRow(-1)
+          .then(function(uiGames){
+            console.log('updated uiGames after hitting',someKey,_.where(uiGames,{selected:true}).length,'categories selected.');
           });
 
         break;
         case 'down':
 
           var selectedRow = _.find(uiGames,{selected:true}) || uiGames[0];
-            // $('#row-'+oldRow).css({'border':'5px solid purple'});
-            $('#row-'+selectedRow.id).removeClass('game-row-selected');
-            $('#row-'+selectedRow.id).addClass('animated bounceOutLeft');
-            $('#row-'+selectedRow.id).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+          $('#row-'+selectedRow.id).removeClass('game-row-selected');
 
-              $('#row-'+selectedRow.id).removeClass('animated bounceOutLeft');
+          return this
+          .changeRow(1)
+          .then(function(uiGames){
 
-              self
-              .changeRow(1)
-              .then(function(uiGames){
-                console.log('updated uiGames after hitting down',uiGames,_.where(uiGames,{selected:true}).length,'categories selected.');
-              });
-
-            });
+            console.log('updated uiGames after hitting',someKey, uiGames,_.where(uiGames,{selected:true}).length,'categories selected.');
+          });
 
         break;
         case 'left':
           var selectedCol = _.find(uiGames[0].games,{selected:true}) || uiGames[0].games[0];
-            $('#col-'+selectedCol.id).addClass('animated bounceOutLeft');
-            $('#col-'+selectedCol.id).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
 
-              $('#col-'+selectedCol.id).removeClass('animated bounceOutLeft');
-
-              self
-              .changeCol(-1)
-              .then(function(uiGames){
-                console.log('updated uiGames after hitting left',uiGames,_.where(uiGames,{selected:true}).length,'categories selected.');
-              });
-
-            });
+          return this
+          .changeCol(-1)
+          .then(function(uiGames){
+            console.log('updated uiGames after hitting',someKey, uiGames,_.where(uiGames,{selected:true}).length,'categories selected.');
+          });
 
         break;
         case 'right':
           var selectedCol = _.find(uiGames[0].games,{selected:true}) || uiGames[0].games[0];
-            $('#col-'+selectedCol.id).addClass('animated bounceOutLeft');
-            $('#col-'+selectedCol.id).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
 
-              $('#col-'+selectedCol.id).removeClass('animated bounceOutLeft');
-
-              self
-              .changeCol(1)
-              .then(function(uiGames){
-                console.log('updated uiGames after hitting right',uiGames,_.where(uiGames,{selected:true}).length,'categories selected.');
-              });
-
-            });
+          return this
+          .changeCol(1)
+          .then(function(uiGames){
+            console.log('updated uiGames after hitting',someKey, uiGames,_.where(uiGames,{selected:true}).length,'categories selected.');
+          });
 
         break;
         case '1':
-
           var gameToLaunch = _.find(uiGames[0].games,{selected:true}) || uiGames[0].games[0];
+          console.log('launching', gameToLaunch.name);
           gameToLaunch.launch(console.log);
 
         break;
@@ -180,17 +149,17 @@ angular.module('baconpriest').factory('uiManager', [
     };
 
     Manager.prototype.setup = function(){
-      var self = this;
 
-      _.flatten(_.values(keyEquivalents)).forEach(function(oneKeyName){
-        self.listener.simple_combo(oneKeyName, _.bind(self.processKeypress,self,oneKeyName));
+      _.flatten(_.values(keyEquivalents)).forEach((oneKeyName) => {
+        this.listener.simple_combo(oneKeyName, _.bind(this.processKeypress,this,oneKeyName));
       });
 
       return $q.when('im resolved!');
     };
 
-    // window.bunish = new Manager();
+window.uiGames=uiGames;
+window.uiManager = new Manager();
 
-    return new Manager();
+    return window.uiManager;
 
   }]);

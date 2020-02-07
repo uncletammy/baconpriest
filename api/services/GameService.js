@@ -84,7 +84,8 @@ module.exports = function(){
 							description: override.description || romDescriptions[romName] ? romDescriptions[romName] : romName,
 							hint: override.hint || 'You are on your own kid...',
 							version: romDescriptions[romName] ? romDescriptions[romName] : romName,
-							image: 'https://edgeemu.net/screenshots/mame/Named_Titles/'+mameDbNormalize(romName)+'.png'
+							// image: 'https://www.hellspark.com/dm/mame/software/mame/snaps/png/'+mameDbNormalize(romName)+'.png'
+							image: 'http://kdo-perso.info/medias/46/marquee/mame/wheel/'+mameDbNormalize(romName)+'.png'
 						};
 
 						creates.push(createThis);

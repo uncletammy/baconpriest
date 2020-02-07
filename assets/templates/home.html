@@ -10,9 +10,10 @@
 
       <div class="tag-container">
         <div class="game-col" ng-repeat="game in category.games" id="col-{{game.id}}" ng-class="{'game-col-selected':game.selected}">
-          <p>{{game.prettyname}}</p><!-- selected:{{game.selected}} -->
-          <img ng-src="{{game.image}}" width="300" height="300">
-          <p>{{game.description}}</p>
+          <!-- <p>{{game.prettyname}}</p> -->
+          <!-- selected:{{game.selected}} -->
+          <img ng-src="{{game.image}}" style="height:100px;max-width:400px;width:auto">
+          <!-- <p>{{game.description}}</p> -->
         </div>
       </div>
     </div>

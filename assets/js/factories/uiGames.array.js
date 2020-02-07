@@ -55,7 +55,7 @@ function($q) {
 
         return i.resolve();
       });
-      console.log('this early:',this);
+
       return i.promise;
 
     }

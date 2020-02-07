@@ -7,9 +7,23 @@ body {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+
+	overflow-x:hidden;
+	overflow-y:hidden;
+
 }
 
 #game-container {
+
+	h1 {
+		color: gold;
+		font-size:6em;
+		text-align:center;
+    font-family: monospace;
+		text-transform: uppercase;
+		text-shadow: 6px -5px black;
+	}
+
 	color: #c9c9c9;
 	text-align: center;
 
@@ -28,8 +42,8 @@ body {
 
 	.game-row-selected {
 		.game-row;
-		border:2px solid white;
-		border-radius:10px;
+		/*border:2px solid white;*/
+		/*border-radius:10px;*/
 	}
 	.game-row-hidden {
 		.game-row;
